@@ -19,6 +19,7 @@ print(" ")
 print("mongorc.js loaded. Lets rock and roll!")
 print(" ")
 ```
+
 <br />
 Changes the MongoDB prompt to last used DB if exists otherwise it changes prompt to current time.
 ```javascript
@@ -36,6 +37,7 @@ prompt = function() {
 	return db+" > ";
 };
 ```
+![promptLastDB](http://i.imgur.com/yV1DbAF.png)
 
 <br />
 This function displays the top three users with the most points.
@@ -44,6 +46,7 @@ function top() {
 	return db.users.aggregate({$sort:{"points":-1}},{$limit:3});
 };
 ```
+![topFunction](http://i.imgur.com/Vh9tZqv.png)
 
 <br />
 Prevents accidental drop of Database, Collections, or Indexes. Also prevents accidental server shutdown. A warning message is shown indicating that the operation has been disabled.
@@ -63,6 +66,7 @@ DBCollection.prototype.dropindex = no;
 // server shutdown protection
 DB.prototype.shutdownServer = no;
 ```
+![dropProtection](http://i.imgur.com/gnHeZty.png)
 
 <br />
 This shows how you can create a function to fill collections with arbitrary data for quick testing.
@@ -75,3 +79,4 @@ function makeData(dbName, colName, num) {
   	print(col.count());
 }
 ```
+![makeData](http://i.imgur.com/KeqC8ky.png)
